@@ -69,7 +69,7 @@ const TermsOfService = () => {
 
       <p className="text-center">
         If you have any questions about these Terms, please contact us at
-        3lite@gmail.com.
+        3Lite@gmail.com.
       </p>
     </div>
   );

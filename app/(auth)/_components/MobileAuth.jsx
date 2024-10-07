@@ -58,7 +58,7 @@ const MobileAuth = ({ children }) => {
             <AppleLogo />
           </div>
           <div className="w-12 h-12 relative  bg-opacity-20 bg-white rounded-[27.27px] border border-[#515978]">
-            <SuiLogo className="p-2" />
+            <SolLogo className="p-2" />
           </div>
         </div>
         <AccMessage />
@@ -146,30 +146,68 @@ export const PasswordIcon = ({ className }) => {
   );
 };
 
-export const SuiLogo = ({ className }) => {
+export const SolLogo = ({ className }) => {
   return (
     <svg
       id="Layer_1"
       x="0px"
       y="0px"
-      viewBox="0 0 300 383.5"
-      className={cn("w-full h-full", className)}
-      style={{ enableBackground: "new 0 0 300 383.5" }}
+      viewBox="0 0 397.7 311.7"
+      style={{ enableBackground: "new 0 0 397.7 311.7" }}
     >
+      <linearGradient
+        id="SVGID_1_"
+        gradientUnits="userSpaceOnUse"
+        x1="360.8791"
+        y1="351.4553"
+        x2="141.213"
+        y2="-69.2936"
+        gradientTransform="matrix(1 0 0 -1 0 314)"
+      >
+        <stop offset="0" style={{ stopColor: "#00FFA3" }} />
+        <stop offset="1" style={{ stopcolor: "#DC1FFF" }} />
+      </linearGradient>
       <path
-        style={{
-          fillRule: "evenodd",
-          clipRule: "evenodd",
-          fill: "#4DA2FF",
-        }}
-        className="st0"
-        d="M240.1,159.9c15.6,19.6,25,44.5,25,71.5s-9.6,52.6-25.7,72.4l-1.4,1.7l-0.4-2.2c-0.3-1.8-0.7-3.7-1.1-5.6
-	c-8-35.3-34.2-65.6-77.4-90.2c-29.1-16.5-45.8-36.4-50.2-59c-2.8-14.6-0.7-29.3,3.3-41.9c4.1-12.6,10.1-23.1,15.2-29.4l16.8-20.5
-	c2.9-3.6,8.5-3.6,11.4,0L240.1,159.9L240.1,159.9z M266.6,139.4L154.2,2c-2.1-2.6-6.2-2.6-8.3,0L33.4,139.4l-0.4,0.5
-	C12.4,165.6,0,198.2,0,233.7c0,82.7,67.2,149.8,150,149.8c82.8,0,150-67.1,150-149.8c0-35.5-12.4-68.1-33.1-93.8L266.6,139.4
-	L266.6,139.4z M60.3,159.5l10-12.3l0.3,2.3c0.2,1.8,0.5,3.6,0.9,5.4c6.5,34.1,29.8,62.6,68.6,84.6c33.8,19.2,53.4,41.3,59.1,65.6
-	c2.4,10.1,2.8,20.1,1.8,28.8l-0.1,0.5l-0.5,0.2c-15.2,7.4-32.4,11.6-50.5,11.6c-63.5,0-115-51.4-115-114.8
-	C34.9,204.2,44.4,179.1,60.3,159.5L60.3,159.5z"
+        class="st0"
+        fill="url(#SVGID_1_)"
+        d="M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5
+	c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z"
+      />
+      <linearGradient
+        id="SVGID_2_"
+        gradientUnits="userSpaceOnUse"
+        x1="264.8291"
+        y1="401.6014"
+        x2="45.163"
+        y2="-19.1475"
+        gradientTransform="matrix(1 0 0 -1 0 314)"
+      >
+        <stop offset="0" style={{ stopColor: "#00FFA3" }} />
+        <stop offset="1" style={{ stopColor: "#DC1FFF" }} />
+      </linearGradient>
+      <path
+        class="st1"
+        fill="url(#SVGID_2_)"
+        d="M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5
+	c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z"
+      />
+      <linearGradient
+        id="SVGID_3_"
+        gradientUnits="userSpaceOnUse"
+        x1="312.5484"
+        y1="376.688"
+        x2="92.8822"
+        y2="-44.061"
+        gradientTransform="matrix(1 0 0 -1 0 314)"
+      >
+        <stop offset="0" style={{ stopColor: "#00FFA3" }} S />
+        <stop offset="1" style={{ stopColor: "#DC1FFF" }} />
+      </linearGradient>
+      <path
+        class="st2"
+        fill="url(#SVGID_3_)"
+        d="M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4
+	c5.8,0,8.7-7,4.6-11.1L333.1,120.1z"
       />
     </svg>
   );

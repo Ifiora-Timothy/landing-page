@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
       <p className="text-sm mb-4 text-center italic">Last updated: 10/7/2024</p>
 
       <p className="mb-4">
-        Welcome to 3lite! We (&quot;we&quot;, &quot;our&quot;, or
+        Welcome to 3Lite! We (&quot;we&quot;, &quot;our&quot;, or
         &quot;us&quot;) are committed to protecting your privacy. This Privacy
         Policy explains how we collect, use, disclose, and safeguard your
         information when you use our application or website (&quot;App&quot;),
@@ -70,8 +70,8 @@ const PrivacyPolicy = () => {
 
       <p className="text-center">
         If you have any questions, contact us at{" "}
-        <a href="mailto:privacy@3lite.com" className="text-blue-500 underline">
-          privacy@3lite.com
+        <a href="mailto:privacy@3Lite.com" className="text-blue-500 underline">
+          privacy@3Lite.com
         </a>
         .
       </p>

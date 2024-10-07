@@ -37,18 +37,6 @@ export const login = async (
   }
 };
 
-// app.get(
-//   "/auth/google",
-//   passport.authenticate("google", { scope: ["profile", "email"] })
-// );
-
-// app.get(
-//   "/auth/google/callback",
-//   passport.authenticate("google"),
-//   (req, res) => {
-//     res.redirect("http://localhost:3000/dashboard");
-//   }
-// );
 export const signupWithGoogle = async (
   email: string,
   username: string,
@@ -75,7 +63,9 @@ export const signupWithGoogle = async (
       username: newUser.username,
     });
   } catch (error) {
-    return JSON.stringify({ message: "Invalid credentials" });
+    return JSON.stringify({
+      message: "An error occurred. Please try again or login with email",
+    });
   }
 };
 export const signup = async (
@@ -101,6 +91,6 @@ export const signup = async (
       username: newUser.username,
     });
   } catch (error) {
-    return JSON.stringify({ message: "Invalid credentials" });
+    return JSON.stringify({ message: error.message });
   }
 };

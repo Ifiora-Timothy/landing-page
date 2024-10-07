@@ -58,7 +58,7 @@ const Navbar = () => {
           <Sheet>
             <div>
               <SheetTrigger asChild>
-                <Menu />
+                <Menu className="stroke-white" />
               </SheetTrigger>
             </div>
 

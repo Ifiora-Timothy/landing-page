@@ -10,7 +10,7 @@ export interface Users extends Document {
   email: string;
   username: string;
   password?: string;
-  authType: "local" | "google";
+  authType: "local" | "google" | "both";
   googleId?: string;
   credentials: boolean;
   created_at: Date;
@@ -59,8 +59,9 @@ const UserSchema = new mongoose.Schema<Users, UserModel>(
       validate: {
         validator: function (this: Users, value: string) {
           return (
-            this.authType === "google" ||
-            validator.isStrongPassword(value, { minSymbols: 0 })
+            this.authType === "google" || true
+            // uncomment for production
+            // validator.isStrongPassword(value, { minSymbols: 0,minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1 })
           );
         },
         message: "Please provide a strong password",
@@ -102,49 +103,6 @@ UserSchema.pre("save", async function (next) {
   next();
 });
 
-// Passport Google Strategy
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-      callbackURL: "/auth/google/callback",
-    },
-    async (_accessToken, _refreshToken, profile, done) => {
-      try {
-        const UserModel = mongoose.model<Users, UserModel>("User");
-
-        // Check if user exists with this email
-        let user = await UserModel.findOne({
-          email: profile.emails?.[0].value,
-        });
-
-        if (user) {
-          if (user.authType === "local") {
-            return done(null, false, {
-              message: "Email already registered with password authentication",
-            });
-          }
-          return done(null, user);
-        }
-
-        // Create new user with Google auth
-        const newUser = await UserModel.create({
-          googleId: profile.id,
-          email: profile.emails?.[0].value,
-          username: profile.displayName.replace(/\s+/g, "").toLowerCase(),
-          authType: "google",
-          credentials: true,
-        });
-
-        done(null, newUser);
-      } catch (error) {
-        done(error);
-      }
-    }
-  )
-);
-
 // Static methods
 UserSchema.statics.createUser = async function (data: Partial<Users>) {
   const { email, username, password, authType, googleId } = data;
@@ -177,20 +135,27 @@ UserSchema.statics.validateLogin = async function (data: {
   email: string;
   password: string;
 }) {
+  console.log({ data }, "dattt");
   const { email, password } = data;
-
   if (!email || !password) {
     throw new Error("Please provide all required fields");
   }
+  console.log("Email fdgdfgdf", email);
 
-  const user = await this.findOne({ email, authType: "local" });
+  const user = await this.findOne({
+    email,
+    // auth type = local or both
+    authType: { $in: ["local", "both"] },
+  });
+  console.log("User found", user);
+
   if (!user) {
-    throw new Error("Invalid credentials");
+    throw new Error("Invalid credentials hewe");
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password!);
   if (!isPasswordValid) {
-    throw new Error("Invalid credentials");
+    throw new Error("Email and password do not match");
   }
 
   return user;
