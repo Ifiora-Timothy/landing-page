@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 const layout = ({ children }) => {
   return (
     <>
-      <div className="sm:grid hidden sm:grid-cols-2  bg-[#070322] h-screen">
+      <div className="sm:grid hidden text-white sm:grid-cols-2  bg-[#070322] h-screen">
         <div className="bg-[#3A197B]   overflow-hidden flex place-content-center place-items-center  h-full">
           <div className=" h-full   flex  justify-center relative w-full bg-re-100">
             <div className="w-fit ">
